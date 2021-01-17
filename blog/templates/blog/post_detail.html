@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 {% block title %} Blog - detalhe   {% endblock title %}
 {% block content %}
-        <div class="post-entry">
-            <h2>{{ custom.titulo }}</h2>
-            <p>{{ custom.conteudo }}  </p>
-        </div>
-    <a href="{% url 'post_edit' post.pk %}">
-    Editar postagem do Blog
-    </a>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="post-entry">
+        <h2>{{ custom.titulo }}</h2>
+        <p>{{ custom.conteudo }}  </p>
+    </div>
+    <a href="{{ object.get_absolute_url_update }}" class="btn btn-primary">Editar Postagem do Blog </a><br>
+    <a href="{{ object.get_absolute_url_delete }}" class="btn btn-primary"> Excluir Postagem do Blog </a>
+
 
 {% endblock content %}

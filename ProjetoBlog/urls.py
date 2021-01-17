@@ -22,10 +22,10 @@ from django.conf.urls.static import static
 #from blog.views import current_datetime
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
-   path('', include('blog.urls')),
-  #  path('watas/', current_datetime)
-
+    path('', include('blog.urls')),
 
 ]
 
