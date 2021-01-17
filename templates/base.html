@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonte.googleapis.com/css?family=source+Sans+pro:400" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+<header>
+    <div class="nav-left">
+      <h1><a herf= "/" > Blog - home</a></h1>
+    </div>
+    <div class="nav-right">
+        <a href="{% url 'post_new' %}">Nova postagem no blog</a>
+    </div>
+</header>
+<div class="container">
+    {% block content %} {% endblock content %}
+</div>
+
+</body>
+</html>
